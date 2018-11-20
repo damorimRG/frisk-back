@@ -43,13 +43,15 @@ func Home(w http.ResponseWriter, r *http.Request) {
 }
 
 func Landing(rw http.ResponseWriter, req *http.Request) {
-	playground := core.PlaygroundFindByDomain(req.Host)
-	if playground == nil {
-		log.Printf("Playground for domain %s was not found!", req.Host)
-		rw.WriteHeader(http.StatusNotFound)
-		return
-	}
+	http.Redirect(rw, req, "http://localhost:3000", http.StatusFound)
+	/*
+		playground := core.PlaygroundFindByDomain(req.Host)
+		if playground == nil {
+			log.Printf("Playground for domain %s was not found!", req.Host)
+			rw.WriteHeader(http.StatusNotFound)
+			return
+		}
 
-	rw.Write(landings[playground.Id])
+		rw.Write(landings[playground.Id])*/
 
 }

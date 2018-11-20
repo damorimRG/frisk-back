@@ -103,6 +103,7 @@
       // Remove alert before closing browser tab
       window.onbeforeunload = null;
       $scope.socket.emit('session close');
+      //window.location = 'http://localhost:3000';
     }
 
     $scope.upsertInstance = function(info) {
@@ -448,6 +449,21 @@
         'width='+w+',height='+h+',resizable,scrollbars=yes,status=1');
     };
 
+    $scope.shareSession = function() {
+      $http({
+        method: 'POST',
+        url: 'http://localhost:3000/share/' + $scope.sessionId
+      }).then(function(response) {
+        if (response.data.status == 'ok') {
+          $scope.showAlert('Files compressed');
+        } else {
+          $scope.showAlert('Error');
+        }
+      }).finally(function() {
+        $scope.showAlert('Test');
+      })
+    };
+
     $scope.loadPlaygroundConf();
     $scope.getSession($scope.sessionId);
 
@@ -559,7 +575,7 @@
       }
     }
   })
-  .component('templatesIcon', {
+  /*.component('templatesIcon', {
     template : "<md-button class='md-mini' ng-click='$ctrl.onClick()'><md-icon class='material-icons'>build</md-icon></md-button>",
     controller : function($mdDialog) {
       var $ctrl = this;
@@ -572,7 +588,7 @@
         })
       }
     }
-  })
+  })*/
   .component("templatesDialog", {
     templateUrl : "templates-modal.html",
     controller : function($mdDialog, $scope, SessionService) {

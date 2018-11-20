@@ -81,7 +81,7 @@
         angular.module('PWDLanding', [])
             .controller('LoginController', ['$scope', '$http', '$window', function($scope, $http, $window) {
                 $scope.providers = [];
-                $scope.loggedIn = false;
+                $scope.loggedIn = true;
                 $scope.user = null;
 
                 function checkLoggedIn() {
@@ -106,7 +106,7 @@
 
                 checkLoggedIn();
 
-                $http({
+                /*$http({
                     method: 'GET',
                     url: '/oauth/providers'
                 }).then(function(response) {
@@ -116,8 +116,7 @@
                     }
                 }, function(response) {
                     console.log('ERROR', response);
-                });
-
+                });*/
 
                 $scope.login = function(provider) {
                     var width = screen.width*0.6;

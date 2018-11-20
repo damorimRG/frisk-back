@@ -43,7 +43,7 @@
                   md-whiteframe="4" layout="column">
 
                 <md-toolbar class="md-theme-indigo">
-                  <span class="clock">{{ttl}}</span>
+                  <!--<span class="clock">{{ttl}}</span>-->
                   <md-button class="md-warn md-raised" ng-click="closeSession()">Close session</md-button>
                   <div class="md-toolbar-tools">
                     <h1 class="md-toolbar-tools">Instances</h1>
@@ -83,15 +83,15 @@
                   <md-card class="stats" md-theme="default" md-theme-watch>
                       <md-card-title>
                           <md-card-title-text>
-                              <span class="md-headline">{{instance.name}}</span>
+                              <span class="md-headline">{{instance.hostname}} - {{instance.ip}}</span>
                           </md-card-title-text>
                       </md-card-title>
                       <md-card-content>
                           <div layout-gt-sm="row">
-                             <md-input-container class="md-icon-float md-block">
+                             <!--<md-input-container class="md-icon-float md-block">
                                <label>IP</label>
                                <input ng-model="instance.ip" type="text" readonly="readonly">
-                             </md-input-container>
+                             </md-input-container>-->
                              <md-chips ng-model="instance.ports" name="port" readonly="true" md-removable="false">
                                <md-chip-template>
                                <strong><a href="{{getProxyUrl(instance, $chip)}}" title="{{getProxyUrl(instance, $chip)}}" target="_blank">{{$chip}}</a></strong>
@@ -117,7 +117,7 @@
                              <md-input-container>
                                <label>SSH</label>
                                <input value="ssh {{instance.proxy_host}}@direct.{{host}}" type="text" readonly="readonly" size="50">
-                               <md-icon ngclipboard data-clipboard-text="ssh {{instance.proxy_host}}@direct.{{host}} "class="material-icons">content_copy
+                               <md-icon ngclipboard data-clipboard-text="ssh {{instance.proxy_host}}@direct.{{host}} -p 8022"class="material-icons">content_copy
                                     <md-tooltip md-direction="top">Copy!</md-tooltip>
                                </md-icon>
                              </md-input-container>
@@ -127,8 +127,11 @@
                       <md-card-actions>
                           <md-button class="md-warn md-raised" ng-click="deleteInstance(instance)" ng-disabled="isInstanceBeingDeleted">{{deleteInstanceBtnText}}</md-button>
                           <md-button class="md-raised" ng-click="openEditor(instance)">
-                              <md-icon class="material-icons">insert_drive_file</md-icon> Editor
-                          </md-button>
+                            <md-icon class="material-icons">insert_drive_file</md-icon> Editor
+                        </md-button>
+                        <md-button class="md-primary md-raised" ng-click="shareSession()">
+                            <md-icon class="material-icons">share</md-icon> Share
+                        </md-button>
                       </md-card-actions>
                   </md-card>
                   <md-card flex md-theme="default" md-theme-watch >
