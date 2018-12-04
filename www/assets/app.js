@@ -454,14 +454,9 @@
         method: 'POST',
         url: 'http://localhost:3000/share/' + $scope.sessionId
       }).then(function(response) {
-        if (response.data.status == 'ok') {
-          $scope.showAlert('Files compressed');
-        } else {
-          $scope.showAlert('Error');
-        }
-      }).finally(function() {
-        $scope.showAlert('Test');
-      })
+        console.log(response);
+        $scope.showAlert('Here is your link: http://localhost:3000/'+response.data.uuid);
+      });
     };
 
     $scope.loadPlaygroundConf();
