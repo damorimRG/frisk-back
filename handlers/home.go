@@ -43,7 +43,7 @@ func Home(w http.ResponseWriter, r *http.Request) {
 }
 
 func Landing(rw http.ResponseWriter, req *http.Request) {
-	http.Redirect(rw, req, "http://localhost:3000", http.StatusFound)
+	http.Redirect(rw, req, "http://docker.lhsm.com.br", http.StatusFound)
 	/*
 		playground := core.PlaygroundFindByDomain(req.Host)
 		if playground == nil {

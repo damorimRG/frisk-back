@@ -452,10 +452,10 @@
     $scope.shareSession = function() {
       $http({
         method: 'POST',
-        url: 'http://localhost:3000/share/' + $scope.sessionId
+        url: 'http://docker.lhsm.com.br/share/' + $scope.sessionId
       }).then(function(response) {
         console.log(response);
-        $scope.showAlert('Here is your link: http://localhost:3000/'+response.data.uuid);
+        $scope.showAlert('Here is your link: http://docker.lhsm.com.br/'+response.data.uuid);
       });
     };
 

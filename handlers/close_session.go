@@ -27,5 +27,5 @@ func CloseSession(rw http.ResponseWriter, req *http.Request) {
 		return
 	}
 
-	http.Redirect(rw, req, "http://localhost:3000", http.StatusFound)
+	http.Redirect(rw, req, "http://docker.lhsm.com.br", http.StatusFound)
 }

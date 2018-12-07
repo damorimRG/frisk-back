@@ -35,6 +35,13 @@ services:
             - "8022:22"
             - "8053:53"
             - "443:443"
+    rails:
+        container_name: rails
+        build: ./DockerFiddle
+        volumes:
+           - ./DockerFiddle/dbf:/usr/src/app/dbf
+        ports:
+           - "3000:3000"
 volumes:
     sessions:
     networks:

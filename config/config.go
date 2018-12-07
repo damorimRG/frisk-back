@@ -58,7 +58,7 @@ func ParseFlags() {
 	flag.StringVar(&DefaultDinDImage, "default-dind-image", "franela/dind", "Default DinD image to use if not specified otherwise")
 	flag.StringVar(&DefaultSessionDuration, "default-session-duration", "2h", "Default session duration if not specified otherwise")
 
-	flag.StringVar(&PlaygroundDomain, "playground-domain", "localhost", "Domain to use for the playground")
+	flag.StringVar(&PlaygroundDomain, "playground-domain", "pg.docker.lhsm.com.br", "Domain to use for the playground")
 	flag.StringVar(&AdminToken, "admin-token", "", "Token to validate admin user for admin endpoints")
 
 	flag.StringVar(&SegmentId, "segment-id", "", "Segment id to post metrics")
