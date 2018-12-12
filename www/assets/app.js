@@ -32,7 +32,7 @@
     $scope.connected = false;
     $scope.type = {windows: false};
     $scope.isInstanceBeingCreated = false;
-    $scope.newInstanceBtnText = '+ Add new instance';
+    $scope.newInstanceBtnText = '+ Add new machine';
     $scope.deleteInstanceBtnText = 'Delete';
     $scope.isInstanceBeingDeleted = false;
     $scope.uploadProgress = 0;
