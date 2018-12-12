@@ -46,7 +46,7 @@
                   <!--<span class="clock">{{ttl}}</span>-->
                   <md-button class="md-warn md-raised" ng-click="closeSession()">Close session</md-button>
                   <div class="md-toolbar-tools">
-                    <h1 class="md-toolbar-tools">Instances</h1>
+                    <h1 class="md-toolbar-tools">V. Machines</h1>
                     <templates-icon></templates-icon>
                     <settings-icon></settings-icon><br/>
                   </div>
@@ -73,8 +73,8 @@
               </md-sidenav>
               <md-content flex layout-padding ng-if="!instances.length">
                 <div layout="column" layout-align="top center">
-                  <p>Add instances to your playground.</p>
-                  <p><strong>Sessions and all their instances are deleted after {{ttl}} hours.</strong></p>
+                  <p>Add virtual machines to your playground.</p>
+                  <p><strong>Sessions and all their virtual machines are deleted after {{ttl}} hours.</strong></p>
                 </div>
 
                 <div flex></div>
@@ -88,10 +88,6 @@
                       </md-card-title>
                       <md-card-content>
                           <div layout-gt-sm="row">
-                             <!--<md-input-container class="md-icon-float md-block">
-                               <label>IP</label>
-                               <input ng-model="instance.ip" type="text" readonly="readonly">
-                             </md-input-container>-->
                              <md-chips ng-model="instance.ports" name="port" readonly="true" md-removable="false">
                                <md-chip-template>
                                <strong><a href="{{getProxyUrl(instance, $chip)}}" title="{{getProxyUrl(instance, $chip)}}" target="_blank">{{$chip}}</a></strong>
@@ -103,7 +99,7 @@
                                </md-chip-template>
                              </md-chips>
                           </div>
-                          <div layout-gt-sm="row">
+                          <div layout-gt-sm="row" ng-show="false">
                              <md-input-container class="md-block" flex-gt-sm>
                                <label>Memory</label>
                                <input ng-model="instance.mem" type="text" readonly="readonly">
@@ -116,7 +112,7 @@
                           <div layout-gt-sm="row">
                              <md-input-container>
                                <label>SSH</label>
-                               <input value="ssh {{instance.proxy_host}}@direct.{{host}}" type="text" readonly="readonly" size="50">
+                               <input value="ssh {{instance.proxy_host}}@direct.{{host}} -p 8022" type="text" readonly="readonly" size="50">
                                <md-icon ngclipboard data-clipboard-text="ssh {{instance.proxy_host}}@direct.{{host}} -p 8022"class="material-icons">content_copy
                                     <md-tooltip md-direction="top">Copy!</md-tooltip>
                                </md-icon>
@@ -145,6 +141,9 @@
                       <md-card-content flex id="terminal-{{instance.name}}" class="terminal-container">
                       </md-card-content>
                   </md-card>
+              </md-content>
+              <md-content flex layout="column" ng-repeat="instance in instances" ng-show="instance.name == selectedInstance.name && showEditor" >
+                    <iframe src="{{getInstanceEditorUrl(instance)}}" frameborder="0" style="width:100%;height:100%;"></iframe> 
               </md-content>
             </section>
         </div>

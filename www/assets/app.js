@@ -23,6 +23,7 @@
     $scope.sessionId = SessionService.getCurrentSessionId();
     $scope.instances = [];
     $scope.idx = {};
+    $scope.showEditor = false;
     $scope.host = window.location.host;
     $scope.idxByHostname = {};
     $scope.selectedInstance = null;
@@ -442,11 +443,16 @@
       });
     };
 
+    $scope.getInstanceEditorUrl = function(instance) {
+      return '/sessions/' + instance.session_id + '/instances/'+instance.name+'/editor';
+    }
+
     $scope.openEditor = function(instance) {
-      var w = window.screen.availWidth * 45  / 100;
+      $scope.showEditor = !$scope.showEditor;
+      /*var w = window.screen.availWidth * 45  / 100;
       var h = window.screen.availHeight * 45  / 100;
       $window.open('/sessions/' + instance.session_id + '/instances/'+instance.name+'/editor', 'editor',
-        'width='+w+',height='+h+',resizable,scrollbars=yes,status=1');
+        'width='+w+',height='+h+',resizable,scrollbars=yes,status=1');*/
     };
 
     $scope.shareSession = function() {
@@ -534,7 +540,7 @@
         $scope.newInstanceBtnText = '+ Creating...';
         $scope.isInstanceBeingCreated = true;
       } else {
-        $scope.newInstanceBtnText = '+ Add new instance';
+        $scope.newInstanceBtnText = '+ New machine';
         $scope.isInstanceBeingCreated = false;
       }
     }
