@@ -17,10 +17,10 @@ import (
 	"github.com/aws/aws-sdk-go/aws/session"
 	"github.com/aws/aws-sdk-go/service/autoscaling"
 	"github.com/aws/aws-sdk-go/service/ec2"
-	"github.com/play-with-docker/play-with-docker/docker"
-	"github.com/play-with-docker/play-with-docker/pwd/types"
-	"github.com/play-with-docker/play-with-docker/router"
-	"github.com/play-with-docker/play-with-docker/storage"
+	"github.com/damorimRG/frisk-back/docker"
+	"github.com/damorimRG/frisk-back/pwd/types"
+	"github.com/damorimRG/frisk-back/router"
+	"github.com/damorimRG/frisk-back/storage"
 )
 
 var asgService *autoscaling.AutoScaling

@@ -4,9 +4,9 @@ import (
 	"context"
 	"testing"
 
-	"github.com/play-with-docker/play-with-docker/docker"
-	"github.com/play-with-docker/play-with-docker/event"
-	"github.com/play-with-docker/play-with-docker/pwd/types"
+	"github.com/damorimRG/frisk-back/docker"
+	"github.com/damorimRG/frisk-back/event"
+	"github.com/damorimRG/frisk-back/pwd/types"
 	"github.com/stretchr/testify/assert"
 )
 

@@ -7,7 +7,7 @@ import (
 	"path/filepath"
 
 	"github.com/gorilla/mux"
-	"github.com/play-with-docker/play-with-docker/storage"
+	"github.com/damorimRG/frisk-back/storage"
 )
 
 func Home(w http.ResponseWriter, r *http.Request) {

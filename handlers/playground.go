@@ -7,8 +7,8 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/play-with-docker/play-with-docker/config"
-	"github.com/play-with-docker/play-with-docker/pwd/types"
+	"github.com/damorimRG/frisk-back/config"
+	"github.com/damorimRG/frisk-back/pwd/types"
 )
 
 func NewPlayground(rw http.ResponseWriter, req *http.Request) {
@@ -69,8 +69,8 @@ func GetCurrentPlayground(rw http.ResponseWriter, req *http.Request) {
 		return
 	}
 	json.NewEncoder(rw).Encode(PlaygroundConfigurationResponse{
-		Id:     playground.Id,
-		Domain: playground.Domain,
+		Id:                          playground.Id,
+		Domain:                      playground.Domain,
 		DefaultDinDInstanceImage:    playground.DefaultDinDInstanceImage,
 		AvailableDinDInstanceImages: playground.AvailableDinDInstanceImages,
 		AllowWindowsInstances:       playground.AllowWindowsInstances,

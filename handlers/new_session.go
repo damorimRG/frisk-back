@@ -10,9 +10,9 @@ import (
 	"strings"
 	"time"
 
-	"github.com/play-with-docker/play-with-docker/config"
-	"github.com/play-with-docker/play-with-docker/provisioner"
-	"github.com/play-with-docker/play-with-docker/pwd/types"
+	"github.com/damorimRG/frisk-back/config"
+	"github.com/damorimRG/frisk-back/provisioner"
+	"github.com/damorimRG/frisk-back/pwd/types"
 )
 
 type NewSessionResponse struct {
