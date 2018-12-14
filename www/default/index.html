@@ -1,19 +1,19 @@
 <!doctype html>
 <html ng-app="DockerPlay" ng-controller="PlayController">
     <head>
-        <title>Docker Playground</title>
+        <title>Frisk Playground</title>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic|Material+Icons" />
         <link rel="stylesheet" href="https://unpkg.com/angular-material@1.1.10/angular-material.min.css">
         <link rel="stylesheet" href="/assets/xterm.css" />
 	<link rel="stylesheet" href="/assets/xterm-addons/fullscreen.css" />
         <link rel="stylesheet" href="/assets/style.css" />
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-102886917-3"></script>
         <script>
-            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-            })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-            ga('create', 'UA-89019737-1', 'auto');
-            ga('send', 'pageview');
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-102886917-3');
         </script>
     </head>
     <body>
