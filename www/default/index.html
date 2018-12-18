@@ -46,7 +46,7 @@
                   <!--<span class="clock">{{ttl}}</span>-->
                   <md-button class="md-warn md-raised" ng-click="closeSession()">Close session</md-button>
                   <div class="md-toolbar-tools">
-                    <h1 class="md-toolbar-tools">V. Machines</h1>
+                    <h1 class="md-toolbar-tools">VMs</h1>
                     <templates-icon></templates-icon>
                     <settings-icon></settings-icon><br/>
                   </div>
@@ -81,11 +81,11 @@
               </md-content>
               <md-content flex layout="column" ng-repeat="instance in instances" ng-show="instance.name == selectedInstance.name" ngf-drop class="drop-box" ngf-drag-over-class="'dragover'" ngf-max-size="100000000" ngf-change="uploadFiles($files, $invalidFiles)" ngf-multiple="true">
                   <md-card class="stats" md-theme="default" md-theme-watch>
-                      <md-card-title>
+                      <!--<md-card-title>
                           <md-card-title-text>
                               <span class="md-headline">{{instance.hostname}} - {{instance.ip}}</span>
                           </md-card-title-text>
-                      </md-card-title>
+                      </md-card-title>-->
                       <md-card-content>
                           <div layout-gt-sm="row">
                              <md-chips ng-model="instance.ports" name="port" readonly="true" md-removable="false">
@@ -129,6 +129,25 @@
                             <md-icon class="material-icons">share</md-icon> Share
                         </md-button>
                       </md-card-actions>
+                  </md-card>
+                  <md-card flex layout="column" ng-repeat="instance in instances" ng-show="instance.name == selectedInstance.name" style="max-height: 52px;">
+                    <md-card-actions>
+                        <md-button class="md-success md-raised" ng-click="runContainer(instance)">
+                            Run
+                        </md-button>
+                        <md-button class="md-primary md-raised" ng-click="buildContainer(instance)">
+                            Build
+                        </md-button>
+                        <md-button class="md-warn md-raised" ng-click="stopAllContainers(instance)">
+                            Stop
+                        </md-button>
+                        <md-button class="md-warn md-raised" ng-click="deleteAllContainers(instance)">
+                            Delete
+                        </md-button>
+                        <md-button class="md-raised" ng-click="listAllContainers(instance)">
+                            List
+                        </md-button>
+                    </md-card-actions>
                   </md-card>
                   <md-card flex md-theme="default" md-theme-watch >
                       <div ng-show="uploadMessage" class="uploadStatus">

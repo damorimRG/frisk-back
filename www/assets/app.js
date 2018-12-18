@@ -455,12 +455,43 @@
         'width='+w+',height='+h+',resizable,scrollbars=yes,status=1');*/
     };
 
+    $scope.runContainer = function(instance) {
+      $scope.socket.emit('instance terminal in', instance.name, 'docker run mycontainer\n');
+    };
+
+    $scope.buildContainer = function(instance) {
+      $scope.socket.emit('instance terminal in', instance.name, 'docker build -t mycontainer .\n');
+    };
+
+    $scope.listAllContainers = function(instance) {
+      $scope.socket.emit('instance terminal in', instance.name, 'docker ps -a\n');
+    };
+
+    $scope.stopAllContainers = function(instance) {
+      $http({
+        method: 'POST',
+        url: 'http://docker.lhsm.com.br/killall/',
+        data: {sessionId: $scope.sessionId, instance: instance.name}
+      }).then(function(response) {
+        //$scope.socket.emit('instance terminal in', instance.name, '\n');
+      });
+    };
+
+    $scope.deleteAllContainers = function(instance) {
+      $http({
+        method: 'POST',
+        url: 'http://docker.lhsm.com.br/killall/',
+        data: {sessionId: $scope.sessionId, instance: instance.name, delete: true}
+      }).then(function(response) {
+        $scope.socket.emit('instance terminal in', instance.name, 'docker ps -a\n');
+      });
+    };
+
     $scope.shareSession = function() {
       $http({
         method: 'POST',
         url: 'http://docker.lhsm.com.br/share/' + $scope.sessionId
       }).then(function(response) {
-        console.log(response);
         $scope.showAlert('Here is your link: http://docker.lhsm.com.br/'+response.data.uuid);
       });
     };
@@ -701,10 +732,10 @@
       return $http
       .post("/sessions/" + getCurrentSessionId() + "/setup", plan)
       .then(function(response) {
-		if (cb) cb();
-      }, function(response) {
-		if (cb) cb(response.data);
-	  });
+        if (cb) cb();
+          }, function(response) {
+        if (cb) cb(response.data);
+      });
     }
   })
   .service("InstanceService", function($http) {
