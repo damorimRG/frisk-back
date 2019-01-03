@@ -23,7 +23,7 @@
     $scope.sessionId = SessionService.getCurrentSessionId();
     $scope.instances = [];
     $scope.idx = {};
-    $scope.showEditor = false;
+    $scope.showEditor = true;
     $scope.host = window.location.host;
     $scope.idxByHostname = {};
     $scope.selectedInstance = null;
@@ -456,7 +456,7 @@
     };
 
     $scope.runContainer = function(instance) {
-      $scope.socket.emit('instance terminal in', instance.name, 'docker run mycontainer\n');
+      $scope.socket.emit('instance terminal in', instance.name, 'docker run -P mycontainer\n');
     };
 
     $scope.buildContainer = function(instance) {
