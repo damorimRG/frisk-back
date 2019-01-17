@@ -1,7 +1,7 @@
 <!doctype html>
 <html ng-app="DockerPlay" ng-controller="PlayController">
     <head>
-        <title>Frisk Playground</title>
+        <title>Frisk</title>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic|Material+Icons" />
         <link rel="stylesheet" href="https://unpkg.com/angular-material@1.1.10/angular-material.min.css">
         <link rel="stylesheet" href="/assets/xterm.css" />
@@ -44,6 +44,7 @@
 
                 <md-toolbar class="md-theme-indigo">
                   <!--<span class="clock">{{ttl}}</span>-->
+                  <img src="/assets/logo.png" width="32px"/>
                   <md-button class="md-warn md-raised" ng-click="closeSession()">Close session</md-button>
                   <div class="md-toolbar-tools">
                     <h1 class="md-toolbar-tools">VMs</h1>
@@ -132,11 +133,12 @@
                   </md-card>
                   <md-card flex layout="column" ng-repeat="instance in instances" ng-show="instance.name == selectedInstance.name" style="max-height: 52px;">
                     <md-card-actions>
-                        <md-button class="md-success md-raised" ng-click="runContainer(instance)">
-                            Run
-                        </md-button>
+                        <img src="/assets/docker.png" width="32px" height="32px"/>
                         <md-button class="md-primary md-raised" ng-click="buildContainer(instance)">
                             Build
+                        </md-button>
+                        <md-button class="md-success md-raised" ng-click="runContainer(instance)">
+                            Run
                         </md-button>
                         <md-button class="md-warn md-raised" ng-click="stopAllContainers(instance)">
                             Stop
