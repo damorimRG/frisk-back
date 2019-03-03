@@ -55,7 +55,7 @@ func ParseFlags() {
 	flag.StringVar(&SSHKeyPath, "ssh_key_path", "", "SSH Private Key to use")
 	flag.StringVar(&CookieHashKey, "cookie-hash-key", "", "Hash key to use to validate cookies")
 	flag.StringVar(&CookieBlockKey, "cookie-block-key", "", "Block key to use to encrypt cookies")
-	flag.StringVar(&DefaultDinDImage, "default-dind-image", "franela/dind", "Default DinD image to use if not specified otherwise")
+	flag.StringVar(&DefaultDinDImage, "default-dind-image", "lhsm/dind", "Default DinD image to use if not specified otherwise")
 	flag.StringVar(&DefaultSessionDuration, "default-session-duration", "2h", "Default session duration if not specified otherwise")
 
 	flag.StringVar(&PlaygroundDomain, "playground-domain", "pg.docker.lhsm.com.br", "Domain to use for the playground")
